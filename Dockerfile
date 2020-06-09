@@ -70,6 +70,8 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN apt remove cmake;\
     pip3 install cmake --upgrade
 
+RUN apt-get install zlib1g-dev
+
 RUN cd ${HOME};\
     git clone https://github.com/cookpa/antsInstallExample.git;\
     cd antsInstallExample;\
