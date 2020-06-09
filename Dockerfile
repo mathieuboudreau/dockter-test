@@ -70,6 +70,9 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 ARG NPROC=1
 
 WORKDIR /tmp
+
+RUN apt-get install -y rpm
+
 RUN curl -fsSLO https://raw.githubusercontent.com/cms-sw/cms-docker/master/slc6/RPM-GPG-KEY-cern \
     && rpm --import RPM-GPG-KEY-cern \
     && curl -fsSL -o /etc/yum.repos.d/slc6-scl.repo http://linuxsoft.cern.ch/cern/scl/slc6-scl.repo \
