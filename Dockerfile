@@ -133,6 +133,11 @@ RUN echo '{ \
 RUN apt-get install ants
 RUN pip install --no-cache-dir notebook==5.*
 
+RUN apt remove cmake;\
+    pip3 install cmake --upgrade
+
+RUN apt-get install zlib1g-dev
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
@@ -143,5 +148,12 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
-WORKDIR ${HOME}
+WORKDIR $HOME
 USER ${USER}
+
+RUN cd $HOME;\
+    pwd;\
+    git clone https://github.com/cookpa/antsInstallExample.git;\
+    cd antsInstallExample;\
+    chmod +777 installANTs.sh;\
+    ./installANTs.sh
