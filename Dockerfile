@@ -31,7 +31,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install the notebook package
-RUN alias pip=pip3 \
+RUN alias pip=pip3; \
     pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook
 
