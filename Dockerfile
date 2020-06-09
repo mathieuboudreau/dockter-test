@@ -24,14 +24,15 @@ RUN apt-get update && \
         gnuplot-x11 \
         libopenblas-base \
         python3-dev \
-        python-pip \
+        python3-pip \
         ttf-dejavu && \
     apt-get clean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install the notebook package
-RUN pip install --no-cache --upgrade pip && \
+RUN alias pip=pip3 \
+    pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook
 
 # create user with a home directory
