@@ -78,7 +78,7 @@ RUN cd $HOME;\
     chmod +777 installANTs.sh;\
     ./installANTs.sh
 
-RUN chmor +777 /root/
+RUN chmod +777 /root/
 
 # create user with a home directory
 ARG NB_USER
