@@ -68,7 +68,7 @@ RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 RUN apt-get update;\
-    apt-get --only-upgrade install cmake;\ 
+    apt remove cmake;\ 
     apt-get install cmake
 
 RUN cd ${HOME};\
