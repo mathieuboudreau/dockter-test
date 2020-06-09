@@ -93,8 +93,6 @@ RUN cd $HOME;\
     ./installANTs.sh
 
 RUN cd $HOME;\
-    echo 'export ANTSPATH=/home/jovyan/antsInstallExample/install/bin/' >> ~/.bashrc ; \
-    echo 'PATH=${ANTSPATH}:$PATHs' >> ~/.bashrc ; \
     git clone https://github.com/mathieuboudreau/dockter-test ;\
     cd dockter-test;\
     git checkout ants_reproduce;\
