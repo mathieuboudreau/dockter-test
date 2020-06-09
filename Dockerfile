@@ -132,8 +132,6 @@ RUN echo '{ \
 
 RUN pip install --no-cache-dir notebook==5.*
 
-RUN apt-get install ants
-
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
