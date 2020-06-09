@@ -133,11 +133,6 @@ RUN echo '{ \
 RUN apt-get install ants
 RUN pip install --no-cache-dir notebook==5.*
 
-RUN apt remove cmake;\
-    pip install cmake --upgrade
-
-RUN apt-get install zlib1g-dev
-
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
@@ -151,7 +146,10 @@ RUN adduser --disabled-password \
 WORKDIR $HOME
 USER ${USER}
 
-RUN cd $HOME;\
+RUN apt remove cmake;\
+    pip install cmake --upgrade
+    apt-get install zlib1g-dev
+    cd $HOME;\
     pwd;\
     git clone https://github.com/cookpa/antsInstallExample.git;\
     cd antsInstallExample;\
