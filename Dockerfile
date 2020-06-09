@@ -32,6 +32,7 @@ RUN apt-get update && \
 
 # install the notebook package
 RUN pip3 install --no-cache --upgrade pip && \
+    pip3 install --no-cache setuptools && \
     pip3 install --no-cache notebook
 
 # create user with a home directory
