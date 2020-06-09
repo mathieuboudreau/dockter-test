@@ -91,4 +91,6 @@ RUN adduser --disabled-password \
 WORKDIR $HOME
 USER ${USER}
 
-RUN cp -r /root $HOME
+RUN cd $HOME;\
+    pwd;\
+    ls
