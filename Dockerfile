@@ -26,6 +26,9 @@ RUN apt-get update && \
         python3-dev \
         python3-pip \
         ttf-dejavu && \
+        wget && \
+        jq && \
+        vim && \
     apt-get clean && \
     apt-get autoremove && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -34,22 +37,6 @@ RUN apt-get update && \
 RUN pip3 install --no-cache --upgrade pip && \
     pip3 install --no-cache setuptools && \
     pip3 install --no-cache notebook
-
-# create user with a home directory
-ARG NB_USER
-ARG NB_UID
-ENV USER ${NB_USER}
-ENV HOME /home/${NB_USER}
-
-RUN adduser --disabled-password \
-    --gecos "Default user" \
-    --uid ${NB_UID} \
-    ${NB_USER}
-WORKDIR ${HOME}
-USER ${USER}
-
-#install deps
-RUN apt-get update && apt-get install -y wget jq vim
 
 #install neurodebian
 RUN wget -O- http://neuro.debian.net/lists/xenial.us-tn.full | tee /etc/apt/sources.list.d/neurodebian.sources.list
@@ -79,3 +66,16 @@ RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 
 #https://wiki.ubuntu.com/DashAsBinSh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# create user with a home directory
+ARG NB_USER
+ARG NB_UID
+ENV USER ${NB_USER}
+ENV HOME /home/${NB_USER}
+
+RUN adduser --disabled-password \
+    --gecos "Default user" \
+    --uid ${NB_UID} \
+    ${NB_USER}
+WORKDIR ${HOME}
+USER ${USER}
