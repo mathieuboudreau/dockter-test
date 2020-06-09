@@ -67,6 +67,11 @@ RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 #https://wiki.ubuntu.com/DashAsBinSh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+RUN cd $HOME; \
+    git clone https://github.com/cookpa/antsInstallExample.git ;\
+    cd antsInstallExample ;\
+    ./installANTs.sh
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
