@@ -78,6 +78,10 @@ RUN cd $HOME;\
     chmod +777 installANTs.sh;\
     ./installANTs.sh
 
+RUN cd $HOME;\
+    pwd;\
+    ls
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
