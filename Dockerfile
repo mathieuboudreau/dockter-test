@@ -76,9 +76,6 @@ RUN cd $HOME;\
     git clone https://github.com/cookpa/antsInstallExample.git;\
     cd antsInstallExample;\
     chmod +777 installANTs.sh;\
-    ./installANTs.sh
-
-
 
 # create user with a home directory
 ARG NB_USER
@@ -92,3 +89,5 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR $HOME
 USER ${USER}
+
+RUN cp -r /root $HOME
