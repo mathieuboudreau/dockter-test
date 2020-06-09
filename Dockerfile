@@ -25,9 +25,9 @@ RUN apt-get update && \
         libopenblas-base \
         python3-dev \
         python3-pip \
-        ttf-dejavu && \
-        wget && \
-        jq && \
+        ttf-dejavu \
+        wget \
+        jq \
         vim && \
     apt-get clean && \
     apt-get autoremove && \
