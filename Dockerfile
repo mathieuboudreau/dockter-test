@@ -147,8 +147,8 @@ WORKDIR $HOME
 USER ${USER}
 
 RUN apt remove cmake;\
-    pip install cmake --upgrade
-    apt-get install zlib1g-dev
+    pip install cmake --upgrade;\
+    apt-get install zlib1g-dev;\
     cd $HOME;\
     pwd;\
     git clone https://github.com/cookpa/antsInstallExample.git;\
