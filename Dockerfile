@@ -24,6 +24,7 @@ RUN apt-get update && \
         gnuplot-x11 \
         libopenblas-base \
         python3-dev \
+        python-pip \
         ttf-dejavu && \
     apt-get clean && \
     apt-get autoremove && \
