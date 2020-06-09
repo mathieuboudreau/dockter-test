@@ -91,3 +91,11 @@ RUN cd $HOME;\
     cd antsInstallExample;\
     chmod +777 installANTs.sh;\
     ./installANTs.sh
+
+RUN cd $HOME;\
+    echo 'export ANTSPATH=/home/jovyan/antsInstallExample/install/bin/' >> ~/.bashrc ; \
+    echo 'PATH=${ANTSPATH}:$PATHs' >> ~/.bashrc ; \
+    git clone https://github.com/mathieuboudreau/dockter-test ;\
+    cd dockter-test;\
+    git checkout finalize;\
+    chmod +777 dockter-test/register_t1maps_nist.sh
