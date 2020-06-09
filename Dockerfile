@@ -98,6 +98,8 @@ RUN echo '{ \
     \n  "neurodocker_version": "0.3.2" \
     \n}' > /neurodocker/neurodocker_specs.json
 
+RUN pip install --no-cache-dir notebook==5.*
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
