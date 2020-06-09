@@ -82,7 +82,6 @@ RUN cd $HOME;\
 ARG NB_USER
 ARG NB_UID
 ENV USER ${NB_USER}
-ENV HOME /home/${NB_USER}
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
@@ -91,6 +90,4 @@ RUN adduser --disabled-password \
 WORKDIR $HOME
 USER ${USER}
 
-RUN cd $HOME;\
-    pwd;\
-    ls
+
