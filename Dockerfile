@@ -130,6 +130,7 @@ RUN echo '{ \
     \n  ] \
     \n}' > /neurodocker/neurodocker_specs.json
 
+RUN apt-get install ants
 RUN pip install --no-cache-dir notebook==5.*
 
 # create user with a home directory
