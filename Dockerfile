@@ -72,17 +72,11 @@ RUN apt remove cmake;\
 
 RUN apt-get install zlib1g-dev
 
-RUN cd $HOME;\
-    git clone https://github.com/cookpa/antsInstallExample.git;\
-    cd antsInstallExample;\
-    chmod +777 installANTs.sh;\
-    ./installANTs.sh
-
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
 ENV USER ${NB_USER}
-ENV HOME /root/
+ENV HOME /home/${NB_USER}
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
@@ -91,4 +85,8 @@ RUN adduser --disabled-password \
 WORKDIR $HOME
 USER ${USER}
 
-
+RUN cd $HOME;\
+    git clone https://github.com/cookpa/antsInstallExample.git;\
+    cd antsInstallExample;\
+    chmod +777 installANTs.sh;\
+    ./installANTs.sh
