@@ -67,9 +67,9 @@ RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 #https://wiki.ubuntu.com/DashAsBinSh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-RUN sudo apt-get update;\
-    sudo apt-get --only-upgrade install cmake;\ 
-    sudo apt-get install cmake
+RUN apt-get update;\
+    apt-get --only-upgrade install cmake;\ 
+    apt-get install cmake
 
 RUN cd ${HOME};\
     git clone https://github.com/cookpa/antsInstallExample.git;\
