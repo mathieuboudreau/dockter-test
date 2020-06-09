@@ -67,6 +67,9 @@ RUN ldconfig && mkdir -p /N/u /N/home /N/dc2 /N/soft
 #https://wiki.ubuntu.com/DashAsBinSh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+RUN apt remove cmake;\
+    pip install cmake --upgrade
+
 RUN cd $HOME; \
     git clone https://github.com/cookpa/antsInstallExample.git ;\
     cd antsInstallExample ;\
