@@ -78,9 +78,7 @@ RUN cd $HOME;\
     chmod +777 installANTs.sh;\
     ./installANTs.sh
 
-RUN cd $HOME;\
-    pwd;\
-    ls
+RUN chmor +777 /root/
 
 # create user with a home directory
 ARG NB_USER
@@ -92,5 +90,5 @@ RUN adduser --disabled-password \
     --gecos "Default user" \
     --uid ${NB_UID} \
     ${NB_USER}
-WORKDIR ${HOME}
+WORKDIR /root/
 USER ${USER}
