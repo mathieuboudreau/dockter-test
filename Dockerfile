@@ -130,7 +130,10 @@ RUN echo '{ \
     \n  ] \
     \n}' > /neurodocker/neurodocker_specs.json
 
-RUN apt-get install ants
+RUN apt remove cmake;\
+    pip install cmake --upgrade;\
+    apt-get install zlib1g-dev
+
 RUN pip install --no-cache-dir notebook==5.*
 
 # create user with a home directory
@@ -146,10 +149,7 @@ RUN adduser --disabled-password \
 WORKDIR $HOME
 USER ${USER}
 
-RUN apt remove cmake;\
-    pip install cmake --upgrade;\
-    apt-get install zlib1g-dev;\
-    cd $HOME;\
+RUN cd $HOME;\
     pwd;\
     git clone https://github.com/cookpa/antsInstallExample.git;\
     cd antsInstallExample;\
