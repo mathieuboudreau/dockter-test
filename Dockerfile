@@ -97,5 +97,5 @@ RUN cd $HOME;\
     echo 'PATH=${ANTSPATH}:$PATHs' >> ~/.bashrc ; \
     git clone https://github.com/mathieuboudreau/dockter-test ;\
     cd dockter-test;\
-    git checkout finalize;\
-    chmod +777 dockter-test/register_t1maps_nist.sh
+    git checkout ants_reproduce;\
+    chmod +777 register_t1maps_nist.sh
