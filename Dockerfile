@@ -82,6 +82,7 @@ RUN cd $HOME;\
 ARG NB_USER
 ARG NB_UID
 ENV USER ${NB_USER}
+ENV HOME /root/
 
 RUN adduser --disabled-password \
     --gecos "Default user" \
