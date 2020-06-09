@@ -86,6 +86,7 @@ WORKDIR $HOME
 USER ${USER}
 
 RUN cd $HOME;\
+    pwd;\
     git clone https://github.com/cookpa/antsInstallExample.git;\
     cd antsInstallExample;\
     chmod +777 installANTs.sh;\
