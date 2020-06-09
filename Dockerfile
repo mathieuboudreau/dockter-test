@@ -134,7 +134,7 @@ RUN apt-get install ants
 RUN pip install --no-cache-dir notebook==5.*
 
 RUN apt remove cmake;\
-    pip3 install cmake --upgrade
+    pip install cmake --upgrade
 
 RUN apt-get install zlib1g-dev
 
